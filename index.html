@@ -1,1 +1,747 @@
 <h1>we are trying out something cool</h1>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CorpComms — Digital Communications & Branding</title>
+  <meta name="description" content="Strategic digital communications & branding for corporate clients. Websites, brand identity, corporate design, and performance reporting." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="CorpComms — Digital Communications & Branding" />
+  <meta property="og:description" content="Strategic digital communications & branding for corporate clients." />
+  <meta property="og:type" content="website" />
+
+  <!-- Simple, modern typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#0f1a33;
+      --card:#0c1730;
+      --text:#e8eefc;
+      --muted:#b9c6e4;
+      --line:rgba(255,255,255,.12);
+      --brand:#2f7cff;
+      --brand2:#21c7a8;
+      --shadow: 0 14px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --radius2: 24px;
+      --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(47,124,255,.35), transparent 55%),
+                  radial-gradient(900px 500px at 90% 0%, rgba(33,199,168,.25), transparent 52%),
+                  linear-gradient(180deg, var(--bg) 0%, #070b14 100%);
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--max), calc(100% - 48px)); margin-inline:auto}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:.55rem;
+      border:1px solid transparent;
+      padding:.9rem 1.1rem;
+      border-radius:999px;
+      font-weight:600;
+      letter-spacing:.01em;
+      cursor:pointer;
+      transition:.18s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .btn-primary{
+      background: linear-gradient(135deg, var(--brand) 0%, #1c59ff 100%);
+      box-shadow: 0 10px 26px rgba(47,124,255,.28);
+    }
+    .btn-primary:hover{transform: translateY(-1px); filter: brightness(1.02)}
+    .btn-ghost{
+      background: rgba(255,255,255,.06);
+      border-color: var(--line);
+    }
+    .btn-ghost:hover{background: rgba(255,255,255,.09); transform: translateY(-1px)}
+    .pill{
+      display:inline-flex; align-items:center; gap:.5rem;
+      padding:.4rem .7rem; border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:.85rem;
+    }
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: rgba(7,11,20,.55);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+    }
+    .logo{
+      display:flex; align-items:center; gap:.65rem;
+      font-weight:800; letter-spacing:.02em;
+    }
+    .mark{
+      width:38px; height:38px; border-radius:12px;
+      background: radial-gradient(circle at 25% 25%, rgba(255,255,255,.35), transparent 55%),
+                  linear-gradient(135deg, var(--brand) 0%, var(--brand2) 100%);
+      box-shadow: 0 12px 24px rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.16);
+    }
+    nav ul{
+      display:flex; align-items:center; gap:18px;
+      list-style:none; margin:0; padding:0;
+      color:var(--muted);
+      font-weight:500;
+    }
+    nav a{padding:.55rem .55rem; border-radius:12px}
+    nav a:hover{background: rgba(255,255,255,.06); color:var(--text)}
+    .nav-cta{display:flex; gap:10px; align-items:center}
+    .menu-btn{display:none}
+
+    /* Hero */
+    .hero{
+      padding:72px 0 44px;
+    }
+    .hero-grid{
+      display:grid; grid-template-columns: 1.25fr .75fr;
+      gap:34px;
+      align-items:start;
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size: clamp(2.05rem, 3.6vw, 3.05rem);
+      line-height:1.06;
+      letter-spacing:-.03em;
+    }
+    .lead{
+      color:var(--muted);
+      font-size:1.05rem;
+      line-height:1.7;
+      max-width: 62ch;
+      margin: 0 0 18px;
+    }
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
+    .trust{
+      display:flex; gap:14px; align-items:center;
+      margin-top:20px; flex-wrap:wrap;
+      color:var(--muted); font-size:.92rem;
+    }
+    .stars{
+      display:inline-flex; gap:4px; align-items:center;
+      padding:.35rem .6rem;
+      border-radius:999px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      color:var(--text);
+      font-weight:600;
+    }
+    .star{width:14px; height:14px; display:inline-block}
+    .panel{
+      border:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .panel-top{
+      padding:18px 18px 10px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      background: radial-gradient(900px 300px at 50% 0%, rgba(47,124,255,.18), transparent 60%);
+    }
+    .panel-top h3{margin:0 0 6px; font-size:1.05rem}
+    .panel-top p{margin:0; color:var(--muted); font-size:.92rem; line-height:1.55}
+    .panel-body{padding:14px 18px 18px}
+    .mini{
+      display:grid; gap:12px;
+    }
+    .mini .item{
+      display:flex; gap:12px; align-items:flex-start;
+      padding:12px 12px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.08);
+    }
+    .ico{
+      width:38px; height:38px; border-radius:14px;
+      display:grid; place-items:center;
+      background: rgba(47,124,255,.16);
+      border:1px solid rgba(47,124,255,.25);
+      flex:0 0 auto;
+    }
+    .item b{display:block; margin-bottom:4px}
+    .item span{color:var(--muted); font-size:.92rem; line-height:1.5}
+
+    /* Sections */
+    section{padding:54px 0}
+    .section-head{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:18px; margin-bottom:18px;
+    }
+    .kicker{color:var(--brand2); font-weight:700; letter-spacing:.12em; text-transform:uppercase; font-size:.8rem}
+    h2{
+      margin:8px 0 0;
+      font-size: clamp(1.45rem, 2.6vw, 2.05rem);
+      letter-spacing:-.02em;
+    }
+    .sub{
+      color:var(--muted);
+      max-width: 70ch;
+      line-height:1.7;
+      margin: 0;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:16px;
+      margin-top:16px;
+    }
+    .card{
+      padding:18px;
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.035);
+      box-shadow: 0 10px 24px rgba(0,0,0,.18);
+      transition:.18s ease;
+      min-height: 210px;
+    }
+    .card:hover{transform: translateY(-2px); background: rgba(255,255,255,.05)}
+    .card h3{margin:10px 0 8px; font-size:1.05rem}
+    .card p{margin:0; color:var(--muted); line-height:1.65}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      font-weight:700;
+      background: rgba(33,199,168,.12);
+      border:1px solid rgba(33,199,168,.25);
+      color: var(--text);
+      padding: .35rem .6rem;
+      border-radius: 999px;
+      font-size:.85rem;
+    }
+
+    .two-col{
+      display:grid; grid-template-columns: 1fr 1fr;
+      gap:18px;
+      margin-top:16px;
+    }
+    .list{
+      padding:18px;
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .list ul{margin:10px 0 0; padding:0 0 0 18px; color:var(--muted); line-height:1.85}
+    .list li{margin: 4px 0}
+    .metrics{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:12px;
+      margin-top:16px;
+    }
+    .metric{
+      padding:16px;
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.10);
+      text-align:left;
+    }
+    .metric b{font-size:1.35rem; letter-spacing:-.02em}
+    .metric span{display:block; color:var(--muted); margin-top:6px; line-height:1.4}
+
+    /* Case studies */
+    .case{
+      display:grid; grid-template-columns: 1fr 1fr;
+      gap:16px;
+      margin-top:16px;
+    }
+    .case .card{min-height:auto}
+    .tagrow{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    .tag{
+      font-size:.82rem; color:var(--muted);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: .28rem .55rem;
+      border-radius: 999px;
+    }
+
+    /* Contact */
+    .contact{
+      display:grid; grid-template-columns: 1fr 1fr;
+      gap:18px;
+      margin-top:16px;
+      align-items:start;
+    }
+    form{
+      display:grid; gap:10px;
+      padding:18px;
+      border-radius: var(--radius2);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+    }
+    label{font-size:.9rem; color:var(--muted)}
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      color: var(--text);
+      outline:none;
+    }
+    input:focus, textarea:focus, select:focus{
+      border-color: rgba(47,124,255,.55);
+      box-shadow: 0 0 0 3px rgba(47,124,255,.18);
+    }
+    textarea{min-height:120px; resize:vertical}
+    .fine{
+      color:var(--muted);
+      font-size:.88rem;
+      line-height:1.6;
+      margin: 0;
+    }
+    footer{
+      border-top:1px solid rgba(255,255,255,.08);
+      padding:24px 0 32px;
+      color:var(--muted);
+    }
+    .foot{
+      display:flex; justify-content:space-between; align-items:center;
+      gap:14px; flex-wrap:wrap;
+    }
+    .foot a{color:var(--muted)}
+    .foot a:hover{color:var(--text)}
+    .sep{opacity:.6}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns: 1fr; gap:18px}
+      .cards{grid-template-columns: 1fr}
+      .two-col{grid-template-columns: 1fr}
+      .metrics{grid-template-columns: 1fr}
+      .case{grid-template-columns: 1fr}
+      .contact{grid-template-columns: 1fr}
+      nav ul{display:none}
+      .menu-btn{display:inline-flex}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header / Nav -->
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#top" aria-label="CorpComms home">
+        <span class="mark" aria-hidden="true"></span>
+        <span>CorpComms</span>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#work">Case Studies</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="#work">View Work</a>
+        <a class="btn btn-primary" href="#contact">Request a Proposal</a>
+        <a class="btn btn-ghost menu-btn" href="#contact" aria-label="Open menu">Menu</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="top" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="pill">
+          <svg class="star" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2.5l2.8 6 6.6.6-5 4.3 1.5 6.5L12 16.9 6.1 19.9l1.5-6.5-5-4.3 6.6-.6L12 2.5z" stroke="currentColor" stroke-width="1.6"/>
+          </svg>
+          Corporate-first digital communications & branding
+        </span>
+
+        <h1>Strategic Digital Communications & Branding for Corporate Clients</h1>
+
+        <p class="lead">
+          We partner with organizations to build trusted brands, strengthen digital presence,
+          and deliver communication assets that are consistent, compliant, and measurable.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Request a Proposal</a>
+          <a class="btn btn-ghost" href="#services">Explore Services</a>
+        </div>
+
+        <div class="trust">
+          <span class="stars" title="Trusted by corporate teams">
+            ★★★★★ <span style="opacity:.8">Corporate-ready delivery</span>
+          </span>
+          <span>Brand Strategy • Web • Reports • Presentations • Campaigns</span>
+        </div>
+      </div>
+
+      <aside class="panel" aria-label="What you get">
+        <div class="panel-top">
+          <h3>Built for decision-makers</h3>
+          <p>Clear scope, professional delivery, and reporting you can present to leadership.</p>
+        </div>
+        <div class="panel-body">
+          <div class="mini">
+            <div class="item">
+              <div class="ico" aria-hidden="true">
+                <!-- icon -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 20V4h16v16H4z" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <b>Corporate-grade assets</b>
+                <span>Guidelines, decks, reports, and campaigns aligned to your brand standards.</span>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="ico" aria-hidden="true" style="background:rgba(33,199,168,.14);border-color:rgba(33,199,168,.25)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 20s7-4.6 7-10.5A4.5 4.5 0 0 0 14.5 5C13.4 5 12.5 5.5 12 6.2 11.5 5.5 10.6 5 9.5 5A4.5 4.5 0 0 0 5 9.5C5 15.4 12 20 12 20z" stroke="currentColor" stroke-width="1.6"/>
+                </svg>
+              </div>
+              <div>
+                <b>Consistency & trust</b>
+                <span>Messaging frameworks and templates to keep teams aligned.</span>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="ico" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 19V5m0 14h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                  <path d="M7 15l3-4 3 2 4-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <b>Measurable outcomes</b>
+                <span>Performance tracking, reporting, and optimization recommendations.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Services</div>
+          <h2>Everything you need to communicate clearly and look world-class</h2>
+        </div>
+        <p class="sub">Modular services you can combine into a single retainer or project-based delivery.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <span class="badge">Digital Communications</span>
+          <h3>Websites & communication systems</h3>
+          <p>Corporate websites, landing pages, intranet-style communication hubs, and structured messaging for teams.</p>
+        </article>
+
+        <article class="card">
+          <span class="badge">Branding</span>
+          <h3>Brand identity & guidelines</h3>
+          <p>Brand strategy, visual identity, brand manuals, templates, and rebrand rollouts for consistency.</p>
+        </article>
+
+        <article class="card">
+          <span class="badge">Corporate Design</span>
+          <h3>Reports, decks & company profiles</h3>
+          <p>Annual reports, presentations, pitch decks, proposals, and profiles designed to executive standards.</p>
+        </article>
+
+        <article class="card">
+          <span class="badge">Campaigns</span>
+          <h3>B2B & stakeholder campaigns</h3>
+          <p>LinkedIn-first campaigns, email communication, and integrated digital rollouts with tracking.</p>
+        </article>
+
+        <article class="card">
+          <span class="badge">Content</span>
+          <h3>Messaging & content production</h3>
+          <p>Copywriting, thought leadership, storytelling, photography direction, and editorial calendars.</p>
+        </article>
+
+        <article class="card">
+          <span class="badge">Analytics</span>
+          <h3>Measurement & reporting</h3>
+          <p>Dashboards, monthly reports, and actionable insights: what worked, what didn’t, what to do next.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries -->
+  <section id="industries">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Industries</div>
+          <h2>Built for corporate and institutional environments</h2>
+        </div>
+        <p class="sub">We understand approvals, brand governance, and stakeholder communications.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="list">
+          <h3 style="margin:0">Who we serve</h3>
+          <ul>
+            <li>Financial institutions & fintech</li>
+            <li>NGOs & development organizations</li>
+            <li>Government & public sector</li>
+            <li>Education & research institutions</li>
+            <li>Healthcare organizations</li>
+            <li>SMEs & corporate enterprises</li>
+          </ul>
+        </div>
+        <div class="list">
+          <h3 style="margin:0">Typical stakeholders</h3>
+          <ul>
+            <li>Marketing & Communications teams</li>
+            <li>Corporate affairs & PR</li>
+            <li>HR & internal communications</li>
+            <li>Program & project teams</li>
+            <li>Executive leadership</li>
+            <li>Procurement & compliance</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="metrics" aria-label="Highlights">
+        <div class="metric">
+          <b>48–72 hrs</b>
+          <span>Typical turnaround for priority corporate design requests</span>
+        </div>
+        <div class="metric">
+          <b>1–3 weeks</b>
+          <span>Average timeline for brand-ready website delivery (scope-dependent)</span>
+        </div>
+        <div class="metric">
+          <b>Monthly</b>
+          <span>Reporting cycle with insights and optimization recommendations</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies -->
+  <section id="work">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Case Studies</div>
+          <h2>Work that leadership teams can confidently approve</h2>
+        </div>
+        <p class="sub">Replace placeholders with real client stories as you complete projects.</p>
+      </div>
+
+      <div class="case">
+        <article class="card">
+          <span class="badge">Brand + Website</span>
+          <h3>Institutional rebrand & website refresh</h3>
+          <p><b>Challenge:</b> Outdated identity and inconsistent messaging across departments.</p>
+          <p><b>Solution:</b> Updated visual identity, brand guidelines, and redesigned website with clear information architecture.</p>
+          <p><b>Outcome:</b> Improved stakeholder trust and easier content updates.</p>
+          <div class="tagrow">
+            <span class="tag">Brand Manual</span>
+            <span class="tag">Website</span>
+            <span class="tag">Templates</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="badge">Campaign</span>
+          <h3>Stakeholder communication campaign</h3>
+          <p><b>Challenge:</b> Low engagement with program updates and unclear calls-to-action.</p>
+          <p><b>Solution:</b> Messaging framework, content calendar, LinkedIn + email series, and performance reporting.</p>
+          <p><b>Outcome:</b> Higher engagement and more qualified inquiries.</p>
+          <div class="tagrow">
+            <span class="tag">LinkedIn</span>
+            <span class="tag">Email</span>
+            <span class="tag">Reporting</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Process</div>
+          <h2>A simple, accountable delivery method</h2>
+        </div>
+        <p class="sub">Structured steps designed for approvals, compliance, and predictable results.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <span class="badge">1. Discover</span>
+          <h3>Brief & alignment</h3>
+          <p>We define objectives, audience, constraints, and deliverables. You receive a clear scope and timeline.</p>
+        </article>
+        <article class="card">
+          <span class="badge">2. Create</span>
+          <h3>Design & build</h3>
+          <p>We produce concepts, refine with feedback, and deliver brand-consistent assets with documentation.</p>
+        </article>
+        <article class="card">
+          <span class="badge">3. Measure</span>
+          <h3>Report & optimize</h3>
+          <p>We track outcomes, produce reports, and recommend improvements for continuous performance.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Contact</div>
+          <h2>Request a proposal</h2>
+        </div>
+        <p class="sub">Share your scope and timeline. We’ll respond with a plan, budget, and next steps.</p>
+      </div>
+
+      <div class="contact">
+        <form onsubmit="return handleSubmit(event)">
+          <div>
+            <label for="name">Full name</label>
+            <input id="name" name="name" autocomplete="name" placeholder="e.g., Jane Doe" required />
+          </div>
+
+          <div>
+            <label for="company">Company / Organization</label>
+            <input id="company" name="company" autocomplete="organization" placeholder="e.g., Acme Group" required />
+          </div>
+
+          <div>
+            <label for="email">Work email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="e.g., jane@company.com" required />
+          </div>
+
+          <div>
+            <label for="service">What do you need?</label>
+            <select id="service" name="service" required>
+              <option value="" selected disabled>Select a service</option>
+              <option>Corporate Website</option>
+              <option>Brand Identity / Rebrand</option>
+              <option>Company Profile / Annual Report</option>
+              <option>Presentation / Pitch Deck</option>
+              <option>Digital Campaign</option>
+              <option>Retainer (ongoing support)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="brief">Project brief</label>
+            <textarea id="brief" name="brief" placeholder="Describe goals, timelines, and any references..." required></textarea>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Send Request</button>
+          <p class="fine">
+            Prefer email? Write to <a href="mailto:hello@yourcompany.com"><b>hello@yourcompany.com</b></a>.
+            (Replace with your real email.)
+          </p>
+        </form>
+
+        <div class="list">
+          <h3 style="margin:0 0 10px">Corporate contact details</h3>
+          <p class="fine" style="margin-bottom:10px">
+            Replace the placeholders below with your company information and add links to your LinkedIn and portfolio.
+          </p>
+          <ul>
+            <li><b>Phone:</b> +254 XXX XXX XXX</li>
+            <li><b>Email:</b> hello@yourcompany.com</li>
+            <li><b>Office:</b> Nairobi, Kenya</li>
+            <li><b>Hours:</b> Mon–Fri, 9:00–17:00</li>
+          </ul>
+
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn btn-ghost" href="#services">Service brochure</a>
+            <a class="btn btn-ghost" href="#work">Portfolio</a>
+          </div>
+
+          <div style="margin-top:16px; padding-top:14px; border-top:1px solid rgba(255,255,255,.08)">
+            <p class="fine" style="margin:0">
+              <b>Procurement-ready:</b> We can provide company profile, tax compliance, CR12/registration, and references on request.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container foot">
+      <div class="logo" style="gap:.55rem">
+        <span class="mark" aria-hidden="true" style="width:30px;height:30px;border-radius:10px"></span>
+        <span>CorpComms</span>
+        <span class="sep">•</span>
+        <span>© <span id="year"></span></span>
+      </div>
+
+      <div style="display:flex; gap:14px; flex-wrap:wrap">
+        <a href="#services">Services</a>
+        <span class="sep">•</span>
+        <a href="#work">Case Studies</a>
+        <span class="sep">•</span>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple form handler (demo). Replace with your backend, Formspree, or an API endpoint.
+    function handleSubmit(e){
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target).entries());
+
+      // Basic validation message
+      alert(
+        "Request received!\\n\\n" +
+        "Name: " + data.name + "\\n" +
+        "Company: " + data.company + "\\n" +
+        "Email: " + data.email + "\\n" +
+        "Service: " + data.service + "\\n\\n" +
+        "Next: Connect this form to your email/API."
+      );
+
+      e.target.reset();
+      return false;
+    }
+  </script>
+</body>
+                    </html>
